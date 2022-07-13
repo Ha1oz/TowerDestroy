@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7663753344869303253}
   - component: {fileID: 6831827774120485356}
   m_Layer: 0
-  m_Name: demo_bullet_new
+  m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0.00000002582868, b: 0, a: 1}
   m_FlipX: 0
@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412fbb4ebb89102408ac0f28f4a0904e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  speed: 10
+  damage: 1
+  speed: 5
+  isItPlayersBullet: 1
 --- !u!58 &7663753344869303253
 CircleCollider2D:
   m_ObjectHideFlags: 0

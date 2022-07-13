@@ -1,62 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Cannon : MonoBehaviour
 {
 
-    public float speed;//rotateSpeed, defaultSpeed, direction, ;
-    private float turnSmoothVelocity;
-
+    [SerializeField] private float rotateSpeed;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float shootDelay;
 
     private bool isFire;
     private bool isStartShoot;
-
     private float timeNextShoot = 0f;
+    private Ray ray;
+    private float touchPoint;
+
 
     // Start is called before the first frame update
     void Start()
     {
         isFire = false;
         isStartShoot = true;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Shoot();
+        if (Input.GetMouseButtonDown(0))
+        {
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            touchPoint = ray.origin.y;
+        }
 
+        if (Input.GetMouseButton(0)) {
+            
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            transform.Rotate(0f, 0f, (touchPoint - ray.origin.y) * rotateSpeed * Time.deltaTime);
 
-    }
-
-    private void Move() {
-        //float vert = Input.GetAxisRaw("Vertical");//change to slider
-        //Vector3 direction = new Vector3(0f, 0f, vert).normalized;
-        //if (direction.magnitude >= 0.1f) {
-        //    float targetAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        //    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle,
-        //        ref turnSmoothVelocity, turnSmoothTime);
-        //    transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        //}
-        float vert = Input.GetAxisRaw("Vertical");//change to slider
-        transform.Rotate(0f, 0f, vert * speed * Time.deltaTime);//need to add <= and >=
-
+        }
         
+        if (Input.GetMouseButtonUp(0)) {
+
+            touchPoint = 0;
+            Shoot();
+        }
+
+
     }
 
     private void Shoot() {
-        if (Input.GetMouseButtonDown(0)) {
-            if (isStartShoot)
-            {
-                Instantiate(bullet, shootPoint.position, shootPoint.transform.rotation);
-                isStartShoot = false;
-                StartCoroutine(ShootDelay());
-            }
-        }    
+        if (isStartShoot)
+        {
+            Instantiate(bullet, shootPoint.position, shootPoint.transform.rotation);
+            isStartShoot = false;
+            StartCoroutine(ShootDelay());
+        } 
     }
     IEnumerator ShootDelay()
     {
@@ -68,4 +70,7 @@ public class Cannon : MonoBehaviour
         isFire = fire;
     }
 
+    //
+
 }
+

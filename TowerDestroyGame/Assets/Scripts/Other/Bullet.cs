@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public int damage;
     public float speed;
-    //public bool isEnemyBullet;
+    [SerializeField] private bool isItPlayersBullet;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -22,20 +22,38 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("DEAD");
+        //Debug.Log("DEAD");
 
-        if (collision.CompareTag("Enemy"))
-        {
+        if (collision.CompareTag("Enemy")) {
+
+            Enemy enemy = collision.GetComponent<Enemy>();
+
+            if (enemy != null) 
+                enemy.HitDamage(damage);
+
             Destroy(gameObject);
         }
-        if (collision.CompareTag("Shield"))
-        {
-            //
-        }
-
-        if (collision.CompareTag("Enemybullet"))
-        {
+        if (collision.CompareTag("Player")) {
+            collision.GetComponent<PlayerAction>().HitDamage();
             Destroy(gameObject);
         }
+
+        if (collision.CompareTag("PlayerShield"))
+        {
+            if (!isItPlayersBullet) {
+                collision.GetComponent<Shield>().HitDamage();
+                Destroy(gameObject);
+            }
+
+        }
+
+        if (collision.CompareTag("EnemyShield"))
+        {
+            if (isItPlayersBullet) {
+                collision.GetComponent<Shield>().HitDamage();
+                Destroy(gameObject);
+            }
+        }
+
     }
 }

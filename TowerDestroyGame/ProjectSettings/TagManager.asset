@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Shield
   - Enemybullet
+  - PlayerShield
+  - EnemyShield
+  - Shield
   layers:
   - Default
   - TransparentFX
