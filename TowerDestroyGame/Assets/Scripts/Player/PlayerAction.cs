@@ -8,7 +8,7 @@ public class PlayerAction : MonoBehaviour
 
     [SerializeField] private float rotateSpeed;
     [SerializeField] private GameObject cannon, bulletPrefab, shield;
-    [SerializeField] private Transform shootPoint;//, shieldPoint;
+    [SerializeField] private Transform shootPoint, rotatePoint;//, shieldPoint;
     [SerializeField] private float shootDelay;
     [SerializeField] private int shieldDelay,shieldHealth;
 
@@ -40,11 +40,19 @@ public class PlayerAction : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            cannon.transform.Rotate(0f, 0f, (touchPoint - ray.origin.y) * rotateSpeed * Time.deltaTime);
+            Vector3 right = cannon.transform.right;
+            
+            float angle = Vector3.Angle(Vector3.right, right); 
 
+            angle *= Vector3.Cross(Vector3.right, right).z > 0 ? 1 : -1; 
+
+            float newAngle = Mathf.Clamp(angle - (touchPoint - ray.origin.y), -30f, 30f);
+
+            float deltaAngle = newAngle - angle;
+
+            cannon.transform.RotateAround(rotatePoint.position, Vector3.forward, deltaAngle);
         }
     }
 
