@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
+    public float health;
 
     [SerializeField] private Transform shootPoint;//, shieldPoint;
     [SerializeField] private float shootDelay;
@@ -44,36 +44,16 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public virtual void Die()
-    {
-        //gameObject.SetActive(false);
 
-        //
-
-    }
-
-
-    public virtual void AddHP()
-    {
-        health = 6;
-    }
-
-
-    public virtual void HitDamage(int damage)
+    public virtual void HitDamage(float damage = 1f)
     {
         health -= damage;
 
-        Debug.Log("Health enemy: " + health);
+        UIManager.Instance.UpdateEnemyHPBar(health);
 
         if (health <= 0)
         {
-            //GameManager.Instance.UpdateScore(score);
-
-            // 
-
-            Die();
-
-            // win
+            UIManager.Instance.GameOver();
         }
     }
 }

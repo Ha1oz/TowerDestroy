@@ -15,6 +15,7 @@ public class Shield : MonoBehaviour
     public virtual void Break()
     {
         HEALTH = 0;
+        UIManager.Instance.ShieldIsBroken();
         gameObject.SetActive(false);
     }
 

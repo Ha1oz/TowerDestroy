@@ -1,0 +1,66 @@
+.circleButton {
+    background-image: url('project://database/Assets/Sprites/1x/Icons/pause_icon.png?fileID=21300000&guid=35320516c0a740e408879afab2d6f7bc&type=3#pause_icon');
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgb(239, 239, 239);
+    border-right-color: rgb(239, 239, 239);
+    border-top-color: rgb(239, 239, 239);
+    border-bottom-color: rgb(239, 239, 239);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    height: 48px;
+    width: 60px;
+    align-items: center;
+    margin-top: 4px;
+    margin-right: 4px;
+    margin-left: 4px;
+    margin-bottom: 4px;
+    transform-origin: center;
+    translate: 0 8px;
+    -unity-text-outline-color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0);
+}
+
+.button {
+    background-image: url('project://database/Assets/Sprites/1x/Icons/resume_icon.png?fileID=21300000&guid=cb6e48794c2ef104ca1956d3515821ac&type=3#resume_icon');
+    -unity-background-scale-mode: scale-to-fit;
+    height: 80px;
+    width: 348px;
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    top: 0;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.progressBar .unity-progress-bar__background {
+    background-color: rgba(255, 255, 255, 0);
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Sprites/1x/Icons/health_bar_icon.png?fileID=21300000&guid=d33f3037a8854bc4bb1d75284b007f94&type=3#health_bar_icon');
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-text-outline-color: rgba(255, 255, 255, 0);
+}
+
+.unity-progress-bar__progress {
+    background-color: rgba(255, 255, 255, 0);
+    -unity-background-image-tint-color: rgba(54, 195, 139, 255);
+    -unity-background-scale-mode: stretch-to-fill;
+    background-image: url('project://database/Assets/Sprites/1x/Icons/health_bar_icon.png?fileID=21300000&guid=d33f3037a8854bc4bb1d75284b007f94&type=3#health_bar_icon');
+    flex-grow: 0;
+    left: -3px;
+}

@@ -34,14 +34,14 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         if (collision.CompareTag("Player")) {
-            collision.GetComponent<PlayerAction>().HitDamage();
+            collision.GetComponent<PlayerAction>().HitDamage(damage);
             Destroy(gameObject);
         }
 
         if (collision.CompareTag("PlayerShield"))
         {
             if (!isItPlayersBullet) {
-                collision.GetComponent<Shield>().HitDamage();
+                collision.GetComponent<Shield>().HitDamage(); //damage
                 Destroy(gameObject);
             }
 
@@ -50,7 +50,7 @@ public class Bullet : MonoBehaviour
         if (collision.CompareTag("EnemyShield"))
         {
             if (isItPlayersBullet) {
-                collision.GetComponent<Shield>().HitDamage();
+                collision.GetComponent<Shield>().HitDamage(); // damage
                 Destroy(gameObject);
             }
         }

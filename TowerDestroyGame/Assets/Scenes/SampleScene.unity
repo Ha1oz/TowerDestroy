@@ -1528,6 +1528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  timer: 0
   rotateSpeed: 20
   cannon: {fileID: 175479910}
   bulletPrefab: {fileID: 5523004408235522414, guid: 11cd0c76e45048a4dae5d06804940afb, type: 3}
@@ -1535,7 +1536,7 @@ MonoBehaviour:
   shootPoint: {fileID: 696517265}
   rotatePoint: {fileID: 1258186969}
   shootDelay: 2
-  shieldDelay: 15
+  shieldDelay: 10
   shieldHealth: 3
 --- !u!61 &1501696071
 BoxCollider2D:
@@ -1692,13 +1693,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1936783981}
   - component: {fileID: 1936783980}
+  - component: {fileID: 1936783982}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1936783980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1730,6 +1732,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1936783982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936783979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c109bbbe7479e49bf44b5de9a8c33d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1971969007
 GameObject:
   m_ObjectHideFlags: 0

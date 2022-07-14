@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
-    public int health;
-
+    public float health; 
+    public int timer;
+    
     [SerializeField] private float rotateSpeed;
     [SerializeField] private GameObject cannon, bulletPrefab, shield;
     [SerializeField] private Transform shootPoint, rotatePoint;//, shieldPoint;
     [SerializeField] private float shootDelay;
     [SerializeField] private int shieldDelay,shieldHealth;
 
-    private bool isStartShoot, isShieldActive;
+    private bool isStartShoot;
     //private float callDown = 0f;
     private Ray ray;
     private float touchPoint;
 
     void Start()
     {
+        timer = shieldDelay;
         isStartShoot = true;
-        isShieldActive = false;
     }
 
     void Update()
     {
         RotateCannon();
         Shoot();
-        ActivateShield();
     }
 
     private void RotateCannon() 
@@ -48,7 +48,7 @@ public class PlayerAction : MonoBehaviour
 
             angle *= Vector3.Cross(Vector3.right, right).z > 0 ? 1 : -1; 
 
-            float newAngle = Mathf.Clamp(angle - (touchPoint - ray.origin.y), -30f, 30f);
+            float newAngle = Mathf.Clamp(angle - (touchPoint - ray.origin.y), -30f, 10f);
 
             float deltaAngle = newAngle - angle;
 
@@ -79,30 +79,20 @@ public class PlayerAction : MonoBehaviour
 
     public void ActivateShield() 
     {
-            
-        if (Input.GetMouseButtonDown(1) && 
-            !shield.activeInHierarchy && !isShieldActive) { //UI button
-            shield.GetComponent<Shield>().Create(shieldHealth);
-            isShieldActive = true;
-            StartCoroutine(ShieldCooldown());
-        }
-    }
-    IEnumerator ShieldCooldown()
-    {
-        //timer
-        yield return new WaitForSeconds(shieldDelay);
-        isShieldActive = false;
+        shield.GetComponent<Shield>().Create(shieldHealth);
+
     }
 
-    public void HitDamage(int damage = 1)
+    public void HitDamage(float damage = 1)
     {
         health -= damage;
-        Debug.Log("Health: " + health);
-        //GameManager.Instance.UpdateHPBar();
+
+        UIManager.Instance.UpdateMyHPBar(health);
 
         if (health <= 0)
         {
-            //GameManager.Instance.GameOver();
+            UIManager.Instance.GameOver();
         }
+
     }
 }
