@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Styles/style3.uss?fileID=7433441132597879392&amp;guid=ab2cc1f9830322244b772d8464f535b9&amp;type=3#style3" />
+    <ui:VisualElement name="UI" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); display: flex;">
+        <ui:VisualElement name="top" style="flex-grow: 1; flex-direction: row; flex-shrink: 1;">
+            <ui:ProgressBar title="my-progress" low-value="100" name="HealthBar" style="flex-grow: 1; align-items: stretch; justify-content: center;" />
+            <ui:VisualElement style="flex-grow: 1; justify-content: center;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="PauseBtn" style="justify-content: center; align-items: stretch;" />
+            </ui:VisualElement>
+            <ui:ProgressBar title="my-progress" name="EnemyHealthBar" low-value="100" style="flex-grow: 1; align-items: stretch; justify-content: center;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="body" style="flex-grow: 5; justify-content: center; align-items: center; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; display: flex;">
+            <ui:VisualElement name="Pause" style="background-color: rgb(255, 255, 255); height: 95%; width: 65%; align-items: center; display: none; visibility: visible; overflow: visible;">
+                <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center; width: 40%; height: 30%;">
+                    <ui:VisualElement name="PauseText" style="width: 100%; height: 70%; background-color: rgb(255, 8, 8); justify-content: center; align-items: center;" />
+                </ui:VisualElement>
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="ResumeBtn" class="menuBtn" style="flex-grow: 1; width: 40%; height: 1%;" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="RestartBtn" class="menuBtn" style="flex-grow: 1; width: 40%; height: 1%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="bottom" style="flex-grow: 1; flex-direction: row-reverse; flex-shrink: 1;">
+            <ui:VisualElement style="flex-direction: row; flex-grow: 0; width: auto; height: auto; margin-top: 1%; align-items: center;">
+                <ui:VisualElement name="CooldownPlane" style="justify-content: center; background-color: rgb(255, 255, 255); width: 100%; height: 50%; flex-direction: column-reverse; align-items: center; margin-right: -4%; display: none;">
+                    <ui:Label text="00:18" display-tooltip-when-elided="true" name="Timer" style="-unity-font: none; -unity-font-style: normal; -unity-font-definition: url(&apos;project://database/Assets/Fonts/supercell-magic%20SDF.asset?fileID=11400000&amp;guid=f9dcbc64063d1b94a8515c8bbc13f7ed&amp;type=2#supercell-magic SDF&apos;); color: rgba(255, 0, 0, 255);" />
+                </ui:VisualElement>
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="ShieldBtn" style="display: flex;" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="DisabledShieldBtn" style="display: none; -unity-font: url(&apos;project://database/Assets/Fonts/supercell-magic.ttf?fileID=12800000&amp;guid=c77dd55155c046f47935c2cb1a898bd1&amp;type=3#supercell-magic&apos;); background-color: rgba(188, 42, 42, 255);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

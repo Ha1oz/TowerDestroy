@@ -8,7 +8,7 @@ public class UIManager : SingleTone<UIManager>
 {
 
     private Button pauseBtn, shieldBtn, resumeBtn, restartBtn, disabledShieldBtn;
-    private VisualElement cooldownPlane, pausePanel, pauseImg;
+    private VisualElement cooldownPlane, pauseImg, pauseMenu; //pausePanel
     private ProgressBar PlayerHPBar, EnemyHPBar;
     private Label timerText;
 
@@ -30,10 +30,11 @@ public class UIManager : SingleTone<UIManager>
         disabledShieldBtn = root.Q<Button>("DisabledShieldBtn");
 
         cooldownPlane = root.Q<VisualElement>("CooldownPlane");
-        pausePanel = root.Q<VisualElement>("PausePanel");
+        //pausePanel = root.Q<VisualElement>("PausePanel");
+        pauseMenu = root.Q<VisualElement>("Pause");
         pauseImg = root.Q<VisualElement>("PauseText");
 
-        timerText = root.Q<Label>("timer");
+        timerText = root.Q<Label>("Timer");
 
         PlayerHPBar = root.Q<ProgressBar>("HealthBar");
         EnemyHPBar = root.Q<ProgressBar>("EnemyHealthBar");
@@ -65,7 +66,8 @@ public class UIManager : SingleTone<UIManager>
         if (isPause)
         {
             Time.timeScale = 0;
-            pausePanel.style.display = DisplayStyle.Flex;
+            //pausePanel.style.display = DisplayStyle.None;
+            pauseMenu.style.display = DisplayStyle.Flex;
         }
 
     }
@@ -76,7 +78,8 @@ public class UIManager : SingleTone<UIManager>
         if (!isPause)
         {
             Time.timeScale = 1;
-            pausePanel.style.display = DisplayStyle.None;
+            //pausePanel.style.display = DisplayStyle.None;
+            pauseMenu.style.display = DisplayStyle.None;
         }
 
     }
@@ -143,7 +146,7 @@ public class UIManager : SingleTone<UIManager>
         isPause = !isPause;
         Time.timeScale = 0;
 
-        pausePanel.style.display = DisplayStyle.Flex;
+        //pausePanel.style.display = DisplayStyle.Flex;
         resumeBtn.style.display = DisplayStyle.None;
         pauseImg.style.display = DisplayStyle.None;
 

@@ -11,9 +11,7 @@ public class Cannon : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float shootDelay;
 
-    private bool isFire;
     private bool isStartShoot;
-    private float timeNextShoot = 0f;
     private Ray ray;
     private float touchPoint;
 
@@ -21,9 +19,7 @@ public class Cannon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isFire = false;
         isStartShoot = true;
-
 
     }
 
@@ -65,12 +61,7 @@ public class Cannon : MonoBehaviour
         yield return new WaitForSeconds(shootDelay);
         isStartShoot = true;
     }
-    public void Fire(bool fire)
-    {
-        isFire = fire;
-    }
 
-    //
 
 }
 
