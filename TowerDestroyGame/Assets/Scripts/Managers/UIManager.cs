@@ -25,14 +25,9 @@ public class UIManager : SingleTone<UIManager>
 
         pauseBtn = root.Q<Button>("PauseBtn");
         shieldBtn = root.Q<Button>("ShieldBtn");
-        //resumeBtn = root.Q<Button>("ResumeBtn");
-        //restartBtn = root.Q<Button>("RestartBtn");
         disabledShieldBtn = root.Q<Button>("DisabledShieldBtn");
 
         cooldownPlane = root.Q<VisualElement>("CooldownPlane");
-        //pausePanel = root.Q<VisualElement>("PausePanel");
-        //pauseMenu = root.Q<VisualElement>("Pause");
-        //pauseImg = root.Q<VisualElement>("PauseText");
 
         timerText = root.Q<Label>("Timer");
 
@@ -53,47 +48,17 @@ public class UIManager : SingleTone<UIManager>
         secPlayerCooldown = playerCooldown % 60;
 
         pauseBtn.clicked += PauseBtnMethod;
-        //resumeBtn.clicked += ResumeBtnMethod;
-        //restartBtn.clicked += RestartBtnMethod;
         shieldBtn.clicked += ShieldBtnPressed;
 
     }
     
     private void PauseBtnMethod() 
     {
-        /*
-        if (isPause)
-        {
-            Time.timeScale = 0;
-            //pausePanel.style.display = DisplayStyle.None;
-            //pauseMenu.style.display = DisplayStyle.Flex;
-        }*/
         UIPauseManager.Instance.OpenPauseMenu();
         Time.timeScale = 0;
         
 
     }
-    //private void ResumeBtnMethod()
-    //{
-    //    isPause = !isPause;
-
-    //    if (!isPause)
-    //    {
-    //        Time.timeScale = 1;
-    //        //pausePanel.style.display = DisplayStyle.None;
-    //        //pauseMenu.style.display = DisplayStyle.None;
-    //    }
-
-    //}
-    //private void RestartBtnMethod()
-    //{
-    //    if (isPause)
-    //    {
-    //        Time.timeScale = 1;
-    //        isPause = false;
-    //        SceneManager.LoadScene(0);
-    //    }
-    //}
 
     private void ShieldBtnPressed()
     {

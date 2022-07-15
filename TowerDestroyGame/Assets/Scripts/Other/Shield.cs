@@ -25,7 +25,6 @@ public class Shield : MonoBehaviour
 
         if (HEALTH <= 0)
         {
-            //GameManager.Instance.UpdateScore(score);
             Break();
         }
     }

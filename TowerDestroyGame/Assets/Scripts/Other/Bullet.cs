@@ -8,10 +8,9 @@ public class Bullet : MonoBehaviour
     public float speed;
     [SerializeField] private bool isItPlayersBullet;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        transform.Translate(Vector2.right.normalized * speed * Time.deltaTime);
 
         if (transform.position.x > 15 || transform.position.x < -15)
         {
@@ -22,8 +21,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("DEAD");
-
         if (collision.CompareTag("Enemy")) {
 
             Enemy enemy = collision.GetComponent<Enemy>();

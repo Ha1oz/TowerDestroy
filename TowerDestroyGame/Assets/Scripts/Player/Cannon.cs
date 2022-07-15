@@ -15,15 +15,12 @@ public class Cannon : MonoBehaviour
     private Ray ray;
     private float touchPoint;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         isStartShoot = true;
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

@@ -9,12 +9,11 @@ public class PlayerAction : MonoBehaviour
     
     [SerializeField] private float rotateSpeed;
     [SerializeField] private GameObject cannon, bulletPrefab, shield;
-    [SerializeField] private Transform shootPoint, rotatePoint;//, shieldPoint;
+    [SerializeField] private Transform shootPoint, rotatePoint;
     [SerializeField] private float shootDelay;
     [SerializeField] private int shieldDelay,shieldHealth;
 
     private bool isStartShoot;
-    //private float callDown = 0f;
     private Ray ray;
     private float touchPoint;
 

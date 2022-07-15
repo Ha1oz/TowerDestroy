@@ -9,7 +9,6 @@ public class UIPauseManager : SingleTone<UIPauseManager>
     private Button resumeBtn, restartBtn;
     private VisualElement pausePanel, pauseImg;
 
-    // Start is called before the first frame update
     private void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
@@ -34,8 +33,6 @@ public class UIPauseManager : SingleTone<UIPauseManager>
     {
         Time.timeScale = 1;
         pausePanel.style.display = DisplayStyle.None;
-
-            //pauseMenu.style.display = DisplayStyle.None;
     }
     private void RestartBtnMethod()
     {
