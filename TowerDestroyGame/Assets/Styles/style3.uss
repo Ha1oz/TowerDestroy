@@ -13,6 +13,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: auto;
+    width: auto;
 }
 
 .unity-progress-bar__progress {
@@ -24,4 +26,6 @@
     width: auto;
     height: 50%;
     top: 15%;
+    left: -1%;
+    right: auto;
 }
