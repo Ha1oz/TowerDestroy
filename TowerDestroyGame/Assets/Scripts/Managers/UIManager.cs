@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class UIManager : SingleTone<UIManager>
 {
 
-    private Button pauseBtn, shieldBtn, resumeBtn, restartBtn, disabledShieldBtn;
-    private VisualElement cooldownPlane, pauseImg, pauseMenu; //pausePanel
+    private Button pauseBtn, shieldBtn, disabledShieldBtn; //resumeBtn, restartBtn;
+    private VisualElement cooldownPlane;//, pauseImg, pauseMenu; //pausePanel
     private ProgressBar PlayerHPBar, EnemyHPBar;
     private Label timerText;
 
-    private bool isPause = false;
+    //private bool isPause = false;
 
     private float playerMaxHealth, enemyMaxHealth;
     private int playerCooldown, minPlayerCooldown, secPlayerCooldown;
@@ -25,14 +25,14 @@ public class UIManager : SingleTone<UIManager>
 
         pauseBtn = root.Q<Button>("PauseBtn");
         shieldBtn = root.Q<Button>("ShieldBtn");
-        resumeBtn = root.Q<Button>("ResumeBtn");
-        restartBtn = root.Q<Button>("RestartBtn");
+        //resumeBtn = root.Q<Button>("ResumeBtn");
+        //restartBtn = root.Q<Button>("RestartBtn");
         disabledShieldBtn = root.Q<Button>("DisabledShieldBtn");
 
         cooldownPlane = root.Q<VisualElement>("CooldownPlane");
         //pausePanel = root.Q<VisualElement>("PausePanel");
-        pauseMenu = root.Q<VisualElement>("Pause");
-        pauseImg = root.Q<VisualElement>("PauseText");
+        //pauseMenu = root.Q<VisualElement>("Pause");
+        //pauseImg = root.Q<VisualElement>("PauseText");
 
         timerText = root.Q<Label>("Timer");
 
@@ -53,45 +53,47 @@ public class UIManager : SingleTone<UIManager>
         secPlayerCooldown = playerCooldown % 60;
 
         pauseBtn.clicked += PauseBtnMethod;
-        resumeBtn.clicked += ResumeBtnMethod;
-        restartBtn.clicked += RestartBtnMethod;
+        //resumeBtn.clicked += ResumeBtnMethod;
+        //restartBtn.clicked += RestartBtnMethod;
         shieldBtn.clicked += ShieldBtnPressed;
 
     }
     
     private void PauseBtnMethod() 
     {
-        isPause = !isPause;
-        
+        /*
         if (isPause)
         {
             Time.timeScale = 0;
             //pausePanel.style.display = DisplayStyle.None;
-            pauseMenu.style.display = DisplayStyle.Flex;
-        }
+            //pauseMenu.style.display = DisplayStyle.Flex;
+        }*/
+        UIPauseManager.Instance.OpenPauseMenu();
+        Time.timeScale = 0;
+        
 
     }
-    private void ResumeBtnMethod()
-    {
-        isPause = !isPause;
+    //private void ResumeBtnMethod()
+    //{
+    //    isPause = !isPause;
 
-        if (!isPause)
-        {
-            Time.timeScale = 1;
-            //pausePanel.style.display = DisplayStyle.None;
-            pauseMenu.style.display = DisplayStyle.None;
-        }
+    //    if (!isPause)
+    //    {
+    //        Time.timeScale = 1;
+    //        //pausePanel.style.display = DisplayStyle.None;
+    //        //pauseMenu.style.display = DisplayStyle.None;
+    //    }
 
-    }
-    private void RestartBtnMethod()
-    {
-        if (isPause)
-        {
-            Time.timeScale = 1;
-            isPause = false;
-            SceneManager.LoadScene(0);
-        }
-    }
+    //}
+    //private void RestartBtnMethod()
+    //{
+    //    if (isPause)
+    //    {
+    //        Time.timeScale = 1;
+    //        isPause = false;
+    //        SceneManager.LoadScene(0);
+    //    }
+    //}
 
     private void ShieldBtnPressed()
     {
@@ -143,12 +145,8 @@ public class UIManager : SingleTone<UIManager>
     }
     public void GameOver()
     {
-        isPause = !isPause;
         Time.timeScale = 0;
-
-        //pausePanel.style.display = DisplayStyle.Flex;
-        resumeBtn.style.display = DisplayStyle.None;
-        pauseImg.style.display = DisplayStyle.None;
+        UIPauseManager.Instance.GameOver();
 
     }
 

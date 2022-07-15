@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Styles/pauseStyles.uss?fileID=7433441132597879392&amp;guid=9e1621f4c1418e947b436b5c16b2cd8d&amp;type=3#pauseStyles" />
+    <ui:VisualElement name="PausePanel" style="flex-grow: 1; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.72); display: none;">
+        <ui:VisualElement style="background-color: rgb(255, 255, 255); border-top-left-radius: 11px; border-bottom-left-radius: 11px; border-top-right-radius: 11px; border-bottom-right-radius: 11px; width: 70%; height: 75%;">
+            <ui:VisualElement style="flex-grow: 3; align-items: center; justify-content: flex-end;">
+                <ui:VisualElement name="PauseImg" style="align-items: center; justify-content: flex-end; width: 25%; height: 43%; background-image: url(&apos;project://database/Assets/Sprites/1x/Icons/pause_text.png?fileID=21300000&amp;guid=369bc8e25e0b06e418b0f127a853a3ff&amp;type=3#pause_text&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; justify-content: flex-end; align-items: center;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="ResumeBtn" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: flex-start;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="RestartBtn" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/1x/Icons/restart_icon.png?fileID=21300000&amp;guid=17c13390757df9f489ba492b0709d276&amp;type=3#restart_icon&apos;);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
