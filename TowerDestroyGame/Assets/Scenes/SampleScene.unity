@@ -1597,7 +1597,7 @@ MonoBehaviour:
   shootPoint: {fileID: 696517265}
   rotatePoint: {fileID: 1258186969}
   shootDelay: 2
-  shieldDelay: 10
+  shieldDelay: 15
   shieldHealth: 3
 --- !u!61 &1501696071
 BoxCollider2D:
