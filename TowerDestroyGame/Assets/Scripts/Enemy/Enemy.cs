@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Enemy Settings")]
     public float health;
 
-    [SerializeField] private Transform shootPoint;//, shieldPoint;
+    [Header("Cannon Settings")]
+    [SerializeField] private Transform shootPoint;
     [SerializeField] private float shootDelay;
-    [SerializeField] private GameObject bulletPrefab, shield;
+    [SerializeField] private GameObject bulletPrefab;
+
+    [Header("Shield Settings")]
+    [SerializeField] private GameObject shield;
     [SerializeField] private int shieldHealth;
 
     private int shieldDelay;

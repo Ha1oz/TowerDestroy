@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage;
-    public float speed;
+    [Header("Bullet Settings")]
+    [SerializeField] private int damage;
+    [SerializeField] private float speed;
     [SerializeField] private bool isItPlayersBullet;
 
     void FixedUpdate()

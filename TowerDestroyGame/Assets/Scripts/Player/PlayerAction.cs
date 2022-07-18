@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
+    [Header("Player Settings")]
     public float health; 
-    public int timer;
-    
+
+    [Header("Cannon Settings")]
     [SerializeField] private float rotateSpeed;
-    [SerializeField] private GameObject cannon, bulletPrefab, shield;
+    [SerializeField] private GameObject cannon, bulletPrefab;
     [SerializeField] private Transform shootPoint, rotatePoint;
     [SerializeField] private float shootDelay;
-    [SerializeField] private int shieldDelay,shieldHealth;
+
+    [Header("Shield Settings")]
+    [SerializeField] private GameObject shield;
+    [SerializeField] private int shieldDelay, shieldHealth;
 
     private bool isStartShoot;
-    private Ray ray;
+    private const float minRotateAngle = -30f, maxRotateAngle = 10f;
     private float touchPoint;
+    private Ray ray;
 
     void Start()
     {
-        timer = shieldDelay;
         isStartShoot = true;
     }
 
@@ -47,7 +51,7 @@ public class PlayerAction : MonoBehaviour
 
             angle *= Vector3.Cross(Vector3.right, right).z > 0 ? 1 : -1; 
 
-            float newAngle = Mathf.Clamp(angle - (touchPoint - ray.origin.y), -30f, 10f);
+            float newAngle = Mathf.Clamp(angle - (touchPoint - ray.origin.y), minRotateAngle, maxRotateAngle);
 
             float deltaAngle = newAngle - angle;
 
@@ -93,5 +97,8 @@ public class PlayerAction : MonoBehaviour
             UIManager.Instance.GameOver();
         }
 
+    }
+    public int getShieldDelay() {
+        return shieldDelay;
     }
 }

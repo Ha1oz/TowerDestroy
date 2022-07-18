@@ -3,7 +3,7 @@
     <ui:VisualElement name="PausePanel" style="flex-grow: 1; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.72); display: none;">
         <ui:VisualElement style="background-color: rgb(255, 255, 255); border-top-left-radius: 11px; border-bottom-left-radius: 11px; border-top-right-radius: 11px; border-bottom-right-radius: 11px; width: 70%; height: 75%;">
             <ui:VisualElement style="flex-grow: 3; align-items: center; justify-content: flex-end;">
-                <ui:VisualElement name="PauseImg" style="align-items: center; justify-content: flex-end; width: 25%; height: 43%; background-image: url(&apos;project://database/Assets/Sprites/1x/Icons/pause_text.png?fileID=21300000&amp;guid=369bc8e25e0b06e418b0f127a853a3ff&amp;type=3#pause_text&apos;);" />
+                <ui:VisualElement name="PauseImg" style="align-items: center; justify-content: flex-end; width: 25%; height: 43%; background-image: url(&apos;project://database/Assets/Sprites/1x/Icons/pause_text.png?fileID=21300000&amp;guid=369bc8e25e0b06e418b0f127a853a3ff&amp;type=3#pause_text&apos;); -unity-background-scale-mode: scale-to-fit;" />
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1; justify-content: flex-end; align-items: center;">
                 <ui:Button text="Button" display-tooltip-when-elided="true" name="ResumeBtn" class="button" />

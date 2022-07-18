@@ -43,7 +43,7 @@ public class UIManager : SingleTone<UIManager>
         isShieldCanPressed = true;
         isShieldAlive = false;
 
-        playerCooldown = FindObjectOfType<PlayerAction>().timer;
+        playerCooldown = FindObjectOfType<PlayerAction>().getShieldDelay();
         minPlayerCooldown = playerCooldown / 60;
         secPlayerCooldown = playerCooldown % 60;
 
